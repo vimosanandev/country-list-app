@@ -2,24 +2,39 @@ package com.example.countrylistapp
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countrylistapp.countries.CountriesAdapter
+import com.example.countrylistapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val countriesViewModel: CountriesViewModel by viewModels {
+        CountriesViewModel.provideFactory((application as CountryListApplication).container.countriesRepository)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.viewModel = countriesViewModel
+        binding.lifecycleOwner = this
+
 
         val recyclerViewAdapter = CountriesAdapter()
+        binding.countryRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.countryRecyclerView.adapter = recyclerViewAdapter
 
-        val recyclerView: RecyclerView = findViewById(R.id.countryRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        countriesViewModel.countries.observe(this, Observer { countries ->
+            countries?.let {
+                recyclerViewAdapter.submitList(it)
+            }
+        })
 
-        recyclerView.adapter = recyclerViewAdapter
+        countriesViewModel.fetchCountries()
     }
 }

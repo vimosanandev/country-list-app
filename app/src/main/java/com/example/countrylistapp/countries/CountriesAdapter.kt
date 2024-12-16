@@ -1,34 +1,39 @@
 package com.example.countrylistapp.countries
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.countrylistapp.R
-import com.example.countrylistapp.data.Country
+import com.example.countrylistapp.databinding.CountryItemBinding
+import com.example.countrylistapp.model.Country
 
-class CountriesAdapter: RecyclerView.Adapter<CountriesAdapter.ViewHolder>() {
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val textView: TextView
+class CountriesAdapter :
+    ListAdapter<Country, CountriesAdapter.CountryViewHolder>(CountryDiffCallback()) {
 
-        init {
-            textView = view.findViewById(R.id.textName)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
+        val binding = CountryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CountryViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+
+    class CountryViewHolder(private val binding: CountryItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(country: Country) {
+            binding.country = country
         }
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.country_item, viewGroup, false)
+    class CountryDiffCallback : DiffUtil.ItemCallback<Country>() {
+        override fun areItemsTheSame(oldItem: Country, newItem: Country): Boolean {
+            return oldItem.code == newItem.code
+        }
 
-        return ViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return 1
-    }
-
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = "America"
+        override fun areContentsTheSame(oldItem: Country, newItem: Country): Boolean {
+            return oldItem == newItem
+        }
     }
 }
