@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CountryListApp</string>
+    <string name="app_bar_title">Countries List App</string>
 </resources>
