@@ -57,9 +57,9 @@ class CountriesViewModelTest {
             Country(
                 capital = "Kabul",
                 code = "AF",
-                currency = Currency("Afghan afghani", "AFN", "؋"),
+                currency = Currency("AFN", "Afghan afghani", "؋"),
                 flag = "https://restcountries.eu/data/afg.svg",
-                language = Language("Pashto", "ps"),
+                language = Language("ps", "Pashto"),
                 name = "Afghanistan",
                 region = "AS"
             )
