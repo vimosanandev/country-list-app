@@ -14,4 +14,7 @@ interface CurrencyDao {
 
     @Query("SELECT * FROM currencies")
     fun getAllCurrencies(): LiveData<List<CurrencyEntity>>
+
+    @Query("DELETE FROM currencies WHERE code = :code")
+    fun deleteByCode(code: String)
 }

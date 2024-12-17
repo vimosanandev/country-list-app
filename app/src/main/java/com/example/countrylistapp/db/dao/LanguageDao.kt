@@ -14,4 +14,7 @@ interface LanguageDao {
 
     @Query("SELECT * FROM languages")
     fun getAllLanguages(): LiveData<List<LanguageEntity>>
+
+    @Query("DELETE FROM languages WHERE code = :code")
+    fun deleteByCode(code: String)
 }

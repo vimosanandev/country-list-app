@@ -69,7 +69,12 @@ dependencies {
 
 
     // Testing
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.runner)
+    implementation(libs.androidx.rules)
+    implementation(libs.androidx.junit.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.room.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
