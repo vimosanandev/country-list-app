@@ -20,18 +20,22 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/layout_width"
                 android:layout_height="wrap_content"
-                android:textColor="@{(country.name != null &amp;&amp; !country.name.isEmpty()) ? @color/black : @color/red}"
-                android:text='@{(country.name != null &amp;&amp; !country.name.isEmpty()) ? country.name + "," : `Unknown`+ "," }' />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text='@{(country.name != null &amp;&amp; !country.name.isEmpty()) ? country.name + "," : `Unknown`+ "," }'
+                android:textColor="@{(country.name != null &amp;&amp; !country.name.isEmpty()) ? @color/black : @color/red}" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
-                android:textColor="@{(country.region != null &amp;&amp; !country.region.isEmpty()) ? @color/black : @color/red}"
-                android:text="@{(country.region != null &amp;&amp; !country.region.isEmpty()) ? country.region : `N/A`}" />
+                android:text="@{(country.region != null &amp;&amp; !country.region.isEmpty()) ? country.region : `N/A`}"
+                android:textColor="@{(country.region != null &amp;&amp; !country.region.isEmpty()) ? @color/black : @color/red}" />
 
             <View
                 android:layout_width="0dp"
@@ -42,15 +46,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:textColor="@{(country.code != null &amp;&amp; !country.code.isEmpty()) ? @color/black : @color/red}"
-                android:text="@{(country.code != null &amp;&amp; !country.code.isEmpty()) ? country.code : `N/A`}" />
+                android:text="@{(country.code != null &amp;&amp; !country.code.isEmpty()) ? country.code : `N/A`}"
+                android:textColor="@{(country.code != null &amp;&amp; !country.code.isEmpty()) ? @color/black : @color/red}" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@{(country.capital != null &amp;&amp; !country.capital.isEmpty()) ? @color/black : @color/red}"
-            android:text="@{(country.capital != null &amp;&amp; !country.capital.isEmpty()) ? country.capital : `Unknown`}" />
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{(country.capital != null &amp;&amp; !country.capital.isEmpty()) ? country.capital : `Unknown`}"
+            android:textColor="@{(country.capital != null &amp;&amp; !country.capital.isEmpty()) ? @color/black : @color/red}" />
 
         <View
             android:layout_width="match_parent"
