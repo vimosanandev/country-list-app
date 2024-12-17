@@ -5,9 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.countrylistapp.countries.CountriesAdapter
 import com.example.countrylistapp.databinding.ActivityMainBinding
 
@@ -20,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = countriesViewModel
         binding.lifecycleOwner = this
 
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.countryRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.countryRecyclerView.adapter = recyclerViewAdapter
 
-        countriesViewModel.countries.observe(this, Observer { countries ->
+        countriesViewModel.countries.observe(this, { countries ->
             countries?.let {
                 recyclerViewAdapter.submitList(it)
             }
