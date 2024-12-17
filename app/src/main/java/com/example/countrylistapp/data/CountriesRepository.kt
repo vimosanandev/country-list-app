@@ -39,7 +39,6 @@ class NetworkCountriesRepository(
             val languageEntities = it.mapNotNull { country -> country.language?.toLanguageEntity() }
                 .distinctBy { it.code }
 
-
             withContext(Dispatchers.IO) {
                 db.runInTransaction {
                     db.currencyDao().insertAll(currencyEntities)

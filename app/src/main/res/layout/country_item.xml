@@ -22,14 +22,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text='@{country.name + ","}' />
+                android:textColor="@{(country.name != null &amp;&amp; !country.name.isEmpty()) ? @color/black : @color/red}"
+                android:text='@{(country.name != null &amp;&amp; !country.name.isEmpty()) ? country.name + "," : `Unknown`+ "," }' />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
-                android:text="@{country.region}" />
+                android:textColor="@{(country.region != null &amp;&amp; !country.region.isEmpty()) ? @color/black : @color/red}"
+                android:text="@{(country.region != null &amp;&amp; !country.region.isEmpty()) ? country.region : `N/A`}" />
 
             <View
                 android:layout_width="0dp"
@@ -40,13 +42,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="@{country.code}" />
+                android:textColor="@{(country.code != null &amp;&amp; !country.code.isEmpty()) ? @color/black : @color/red}"
+                android:text="@{(country.code != null &amp;&amp; !country.code.isEmpty()) ? country.code : `N/A`}" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{country.capital}" />
+            android:textColor="@{(country.capital != null &amp;&amp; !country.capital.isEmpty()) ? @color/black : @color/red}"
+            android:text="@{(country.capital != null &amp;&amp; !country.capital.isEmpty()) ? country.capital : `Unknown`}" />
 
         <View
             android:layout_width="match_parent"
