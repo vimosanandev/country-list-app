@@ -1,7 +1,6 @@
 package com.example.countrylistapp
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -10,12 +9,11 @@ import com.example.countrylistapp.model.Country
 import kotlinx.coroutines.launch
 
 class CountriesViewModel(private val countriesRepository: CountriesRepository) : ViewModel() {
-    private val _countries = MutableLiveData<List<Country>>()
-    val countries: LiveData<List<Country>> = _countries
+    val countries: LiveData<List<Country>> = countriesRepository.getCountries()
 
     fun fetchCountries() {
         viewModelScope.launch {
-            _countries.value = countriesRepository.getCountries()
+            countriesRepository.fetchCountries()
         }
     }
 

@@ -13,7 +13,7 @@ import com.example.countrylistapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val countriesViewModel: CountriesViewModel by viewModels {
-        CountriesViewModel.provideFactory((application as CountryListApplication).container.countriesRepository)
+        CountriesViewModel.provideFactory((application as CountryListApplication).appContainer.countriesRepository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

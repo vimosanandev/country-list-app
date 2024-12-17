@@ -1,5 +1,6 @@
 package com.example.countrylistapp.data
 
+import com.example.countrylistapp.db.AppDatabase
 import com.example.countrylistapp.network.CountriesApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
@@ -10,7 +11,7 @@ interface AppContainer {
     val countriesRepository: CountriesRepository
 }
 
-class CountryListAppContainer : AppContainer {
+class CountryListAppContainer(val db: AppDatabase) : AppContainer {
     private val baseUrl = "https://gist.githubusercontent.com/"
 
     private val json = Json {
@@ -27,6 +28,6 @@ class CountryListAppContainer : AppContainer {
     }
 
     override val countriesRepository: CountriesRepository by lazy {
-        NetworkCountriesRepository(retrofitService)
+        NetworkCountriesRepository(retrofitService, db)
     }
 }
