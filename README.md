@@ -3,7 +3,7 @@
 This application is built as an assignment to showcase my experience in Android Developement using Kotlin. App fetch a list of countries from (https://gist.githubusercontent.com/peymano-
 wmt/32dcb892b06648910ddd40406e37fdab/raw/db25946fd77c5873b0303b858e861ce724e0dcd0/countries.json) to list the countries in a RecyclerView.
 
-<img src="[CountryListApp.jpg](https://github.com/user-attachments/assets/372a1b9d-0507-4438-8d46-f341771b0af8)" alt="CountryList App" width="200"/>
+<img src="https://github.com/user-attachments/assets/372a1b9d-0507-4438-8d46-f341771b0af8" alt="CountryList App" width="200"/>
 
 
 ![Screenshot_20241217_222919](https://github.com/user-attachments/assets/372a1b9d-0507-4438-8d46-f341771b0af8)
