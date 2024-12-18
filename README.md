@@ -8,20 +8,20 @@ This application is built as an assignment to showcase my experience in Android 
 ### How to Run the Application on Your Machine
 
 
-1. Clone the Repository:
-        Use the following command to clone the project repository to your local machine:<br>
-     `git clone git@github.com:vimosanandev/country-list-app.git`
+1. Clone the Repository:<br>
+        &nbsp;Use the following command to clone the project repository to your local machine:<br>
+     &nbsp; &nbsp; `git clone git@github.com:vimosanandev/country-list-app.git`
 
-3. Switch to the Main Branch:
-    After cloning, navigate to the project directory and ensure you are on the default main branch:<br>
-       `git checkout main`
+3. Switch to the Main Branch:<br>
+    &nbsp;After cloning, navigate to the project directory and ensure you are on the default main branch:<br>
+       &nbsp; &nbsp;`git checkout main`
    
-4. Resolve Gradle Issues:
-    Open the project in Android Studio. If any Gradle-related issues occur, resolve them by syncing the project with Gradle files.
+4. Resolve Gradle Issues:<br>
+    &nbsp;Open the project in Android Studio. If any Gradle-related issues occur, resolve them by syncing the project with Gradle files.
       - Navigate to File > Sync Project with Gradle Files if prompted.
       - Ensure all required dependencies are installed.
-5. Run the Application:
-    Once all issues are resolved, click on the Run icon (a green play button) in Android Studio to build and launch the application.
+5. Run the Application:<br>
+    &nbsp;Once all issues are resolved, click on the Run icon (a green play button) in Android Studio to build and launch the application.
 
 
 ### Technologies Used
