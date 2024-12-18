@@ -5,9 +5,6 @@ wmt/32dcb892b06648910ddd40406e37fdab/raw/db25946fd77c5873b0303b858e861ce724e0dcd
 
 <img src="https://github.com/user-attachments/assets/372a1b9d-0507-4438-8d46-f341771b0af8" alt="CountryList App" width="200"/>
 
-
-![Screenshot_20241217_222919](https://github.com/user-attachments/assets/372a1b9d-0507-4438-8d46-f341771b0af8)
-
 ### How to Run the Application on Your Machine
 
 Clone the Repository:
