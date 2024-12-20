@@ -67,7 +67,6 @@ dependencies {
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
-
     // Testing
     implementation(libs.androidx.core)
     implementation(libs.androidx.runner)
