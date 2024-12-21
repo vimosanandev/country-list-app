@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.example.countrylistapp.data.CountriesRepository
 import com.example.countrylistapp.model.Country
+import com.example.countrylistapp.model.CountryItem
 import com.example.countrylistapp.model.Currency
 import com.example.countrylistapp.model.Language
 import junit.framework.TestCase.assertEquals
@@ -72,12 +73,12 @@ class CountriesViewModelTest {
 
         val viewModel = CountriesViewModel(mockRepository)
 
-        val observedCountries = mutableListOf<List<Country>>()
-        viewModel.countries.observeForever { countries ->
-            observedCountries.add(countries)
+        val observedCountryItems = mutableListOf<List<CountryItem>>()
+        viewModel.countries.observeForever { countryItems ->
+            observedCountryItems.add(countryItems)
         }
 
-        assertEquals(1, observedCountries.size)
-        assertEquals(mockCountries, observedCountries[0])
+        assertEquals(1, observedCountryItems.size)
+        assertEquals(mockCountries, observedCountryItems[0])
     }
 }
